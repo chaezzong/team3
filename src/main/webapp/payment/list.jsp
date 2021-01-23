@@ -40,7 +40,7 @@ function payment_delete(payment_no){
 	if(confirm_val){
 	  var mem_no = $('#mem_no').val();
 	  var params ='mem_no='+mem_no+'&payment_no=' + payment_no ;
-	  alert(params); 
+	//  alert(params); 
 	  
 	  $.ajax({ 
 	    url: './delete.do',
@@ -51,8 +51,8 @@ function payment_delete(payment_no){
 	    data: params, //데이터
 	    success: function(data) { // 서버로부터 성공적으로 응답이 온경우
 	      // var msg = "";
-	      alert ('cnt:' + data.cnt); // 정상적 전달 확인
-	      alert ('mem_no:' + data.mem_no); // 정상적 전달 확인
+	     // alert ('cnt:' + data.cnt); // 정상적 전달 확인
+	      //alert ('mem_no:' + data.mem_no); // 정상적 전달 확인
 	     if (data.cnt > 0) {
 	         alert("삭제?");
 	       location.reload();

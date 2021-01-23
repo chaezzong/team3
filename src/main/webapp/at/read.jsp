@@ -132,7 +132,7 @@
     
     var params = frm.serialize();// 값가져옴
    // var params ='mem_no='+mem_no +'&at_no=' + at_no;
-    alert(params); 
+  //  alert(params); 
     $.ajax({ 
       url: '../cart/create.do',
       type: 'post',  //다른타입은 get

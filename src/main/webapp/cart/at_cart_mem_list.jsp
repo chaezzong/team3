@@ -53,7 +53,7 @@ function cart_delete(cart_no){
   
   //var params = frm2.serialize();
   var params ='mem_no='+mem_no +'&at_no=' + at_no +'&cart_no=' + cart_no ;
-  alert(params); 
+  //alert(params); 
   
   $.ajax({ 
     url: './delete.do',
@@ -65,11 +65,11 @@ function cart_delete(cart_no){
 
     success: function(data) { // 서버로부터 성공적으로 응답이 온경우
       // var msg = "";
-      alert ('cnt:' + data.cnt); // 정상적 전달 확인
-      alert ('mem_no:' + data.mem_no); // 정상적 전달 확인
+   //   alert ('cnt:' + data.cnt); // 정상적 전달 확인
+//      alert ('mem_no:' + data.mem_no); // 정상적 전달 확인
       
      if (data.cnt > 0) {
-         alert("삭제?");
+         //alert("삭제?");
         
        location.reload();
        
@@ -119,7 +119,7 @@ function cart_update(cart_no, cart_cnt){
      
     if (data.cnt > 0) {
         // alert ('cart_cnt:' + data.cart_cnt); // 정상적 전달 확인    
-        alert("수정?");
+       // alert("수정?");
         location.reload();
 
      } else {
@@ -185,7 +185,7 @@ function select_del(){
     var arr = [];
     
     $("input[id='checkOne']:checked").each(function(){
-      alert($(this).val());
+    //  alert($(this).val());
       arr.push($(this).val());
       
     });   
@@ -200,11 +200,11 @@ function select_del(){
 
       success: function(data) { // 서버로부터 성공적으로 응답이 온경우
         // var msg = "";
-        alert ('cnt:' + data.cnt); 
-        alert ('mem_no:' + data.mem_no); 
+       // alert ('cnt:' + data.cnt); 
+      //  alert ('mem_no:' + data.mem_no); 
         
        if (data.cnt > 0) {
-           alert("선삭?");
+       //    alert("선삭?");
           
            location.reload();
            
