@@ -48,10 +48,10 @@
      
 
      var radioVal = $("input[id='payment_way']:checked").val();
-     alert(radioVal);  
+  //   alert(radioVal);  
 
     var param = $("#frm").serialize();  //serialize값다받아옴 ->cont
-      alert(param);
+  //    alert(param);
       
       /*        return;
       

@@ -21,7 +21,7 @@
           <div class="row align-items-center">
             <div class="col-xl-2 col-lg-2">
               <div class="logo">
-                <a href=""> <img src="${root}/img/logo.png" alt="">
+                <a href='${root }'> <img src="${root}/img/logo.png" alt="">
                 </a>
               </div>
             </div>
@@ -120,17 +120,24 @@
               </div>
             </div>
             
-            <div class="col-xl-2 col-lg-2 d-none d-lg-block" >
+       <div class="col-xl-2 col-lg-2 d-none d-lg-block" >
               <div class="social_wrap d-flex align-items-center justify-content-end" >
                 <div class="social_links d-none d-xl-block" >
-                   <span class="glyphicon glyphicon-user"> <a href="${root}/mem/create.do"> 회원가입</a> </span>
+                
+                  <%-- 회원가입 --%>
+                  <span class="glyphicon glyphicon-user"> <a href="${root}/mem/create.do"> 회원가입</a> | </span>
                    
+                  <%--로그인 --%> 
                   <c:choose>
-                    <c:when test="${sessionScope.mem_id == null}"> <!-- 로그인 X -->
-                      <A class='menu_link'  href='${root}/mem/login.do' >Login</A> <span class='top_menu1'> | </span>
+                    <c:when test="${sessionScope.mem_id == null}"> 
+                      <A class='menu_link' href='${root}/mem/login.do'> <span class="glyphicon glyphicon-off" id='mem_login'> 로그인 </span></A> 
+                      <span class='top_menu1'> | </span>
                     </c:when>
-                    <c:otherwise> <!-- 로그인 O -->
-                      ${sessionScope.mem_id } <A class='menu_link'  href='${root}/mem/logout.do' >Logout</A> <span class='top_menu1'> | </span>
+                    
+                    <%-- 로그아웃 --%>
+                    <c:otherwise>
+                      ${sessionScope.mem_id } <A class='menu_link'  href='${root}/mem/logout.do' > Logout</A> |
+                      
                     </c:otherwise>
                   </c:choose>
                   
@@ -156,5 +163,10 @@
       </div>
     </div>
   </div>
+  
+
+  
+
+  
 </header>
 <!-- header-end -->

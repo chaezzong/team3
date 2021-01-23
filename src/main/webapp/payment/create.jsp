@@ -45,11 +45,11 @@
    var at_no = $('#at_no', frm).val();
 
    var radioVal = $("input[id='payment_way']:checked").val();
-   alert(radioVal);
+ //  alert(radioVal);
    
    var params = frm.serialize();// 값가져옴
   // var params ='mem_no='+mem_no +'&at_no=' + at_no;
-   alert(params); 
+ //  alert(params); 
    
 
 
