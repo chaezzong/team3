@@ -311,9 +311,9 @@ function select_pay(){
         </c:when>
         <c:otherwise> 
 
-     <button type="button" id='btn_select_delete' name='btn_select_delete' class="btn_select_delete">선택삭제</button>
+     <button type="button" id='btn_select_delete' name='btn_select_delete' class="btn_select_delete">삭제</button>
      
-     <button type="submit" id='btn_select_pay' name='btn_select_pay' class="btn_select_pay">선택결제</button>
+     <button type="submit" id='btn_select_pay' name='btn_select_pay' class="btn_select_pay">결제</button>
      
      
                
@@ -391,7 +391,7 @@ function select_pay(){
               <button type="button" id='btn_cart_delete_${cart_no }' name='btn_cart_delete_${cart_no }'  class="btn"
                             onclick="cart_delete(${cart_no})">삭제</button>
 
-           <a href="../payment/create.do?cart_no=${cart_no }"><button type="button" class="btn">결제</button></a>
+      <%--      <a href="../payment/create.do?cart_no=${cart_no }"><button type="button" class="btn">결제</button></a> --%>
             </td>
             
 
