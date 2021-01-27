@@ -88,7 +88,7 @@ function payment_delete(payment_no){
 <body>
 <jsp:include page="/menu/top.jsp" flush='false' />
   <DIV class='title_line'>
-    결제 목록   ♣${memVO.mem_id} 님이 로그인함
+    ♣${memVO.mem_id} 님  결제 목록  
   </DIV>
 
   

@@ -188,14 +188,15 @@
         <tr>
           <th style='text-align: right; font-size:16px; padding-right:10px;'>이름</th>
           <td style='text-align:left; padding-left:15px;'>
-           <input type='text' id = 'mem_name'  name='mem_name'  value='${memVO.mem_name }' placeholder="이름" style='width: 20%;'>
+          ${memVO.mem_name }
+          <%--  <input type='text' id = 'mem_name'  name='mem_name'  value='${memVO.mem_name }' placeholder="이름" style='width: 20%;'> --%>
          </td>   
         </tr>
         
         <tr>
           <th style='text-align: right; font-size:16px;'>전화번호</th>
-          <td style='text-align:left; padding-left:15px;'>
-          <input type='text' id = 'mem_tel'  name='mem_tel'  value='${memVO.mem_tel }' placeholder="전화번호" style='width: 30%;'>
+          <td style='text-align:left; padding-left:15px;'>${memVO.mem_tel }
+          <%-- <input type='text' id = 'mem_tel'  name='mem_tel'  value='${memVO.mem_tel }' placeholder="전화번호" style='width: 30%;'> --%>
         
           </td>
         </tr>      

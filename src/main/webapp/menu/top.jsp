@@ -130,13 +130,13 @@
                   <%--로그인 --%> 
                   <c:choose>
                     <c:when test="${sessionScope.mem_id == null}"> 
-                      <A class='menu_link' href='${root}/mem/login.do'> <span class="glyphicon glyphicon-off" id='mem_login'> 로그인 </span></A> 
+                      <A href='${root}/mem/login.do'> <span class="glyphicon glyphicon-off" id='mem_login'> 로그인 </span></A> 
                       <span class='top_menu1'> | </span>
                     </c:when>
                     
                     <%-- 로그아웃 --%>
                     <c:otherwise>
-                      ${sessionScope.mem_id } <A class='menu_link'  href='${root}/mem/logout.do' > Logout</A> |
+                      ${sessionScope.mem_id } <A  href='${root}/mem/logout.do' > Logout</A> |
                       
                     </c:otherwise>
                   </c:choose>
@@ -144,10 +144,10 @@
                   <br>
                   <c:choose>
                     <c:when test="${sessionScope.id_admin == null}">
-                      <A class='menu_link'  href='${root}/admin/login.do' >관리자 Login</A>
+                      <A   href='${root}/admin/login.do' >관리자 Login</A>
                     </c:when>
                     <c:otherwise>
-                      ${sessionScope.id_admin } <A class='menu_link'  href='${root}/admin/logout.do' >관리자 Logout</A> 
+                      ${sessionScope.id_admin } <A  href='${root}/admin/logout.do' >관리자 Logout</A> 
                     </c:otherwise>
                   </c:choose>
                 </div>

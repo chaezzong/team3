@@ -300,7 +300,7 @@ function select_pay(){
 <body>
 <jsp:include page="/menu/top.jsp" flush='false' />
   <DIV class='title_line'>
-    장바구니 목록   ♣${memVO.mem_id} 님이 로그인함
+  ♣${memVO.mem_id} 님  장바구니 목록 
   </DIV>
  
   <FORM name='frm'  id='frm' method='GET' action='../payment/create_select.do' class="form-horizontal" style='margin-top:50px;'>
