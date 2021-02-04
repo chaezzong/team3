@@ -4,7 +4,6 @@
 /**********************************/
 
 DROP TABLE mem_pic;
-
 CREATE TABLE MEM_PIC(
 		mem_pic_no                    		NUMBER(10)		 NOT NULL		 PRIMARY KEY,
 		mem_pic_name                  		VARCHAR2(100)		 NOT NULL,
@@ -26,12 +25,8 @@ COMMENT ON COLUMN MEM_PIC.mem_pic_date is '회원 사진 등록일';
 COMMENT ON COLUMN MEM_PIC.MEM_NO is '회원 번호';
 
 
-
--- ▷시퀀스 삭제
+-- SEQUENCE 시퀀스 생성
 DROP SEQUENCE mem_pic_seq;  
- 
-
--- ▷SEQUENCE 시퀀스 생성
 CREATE SEQUENCE mem_pic_seq
     START WITH 1                     -- 시작 번호
     INCREMENT BY 1                -- 증가값
@@ -67,6 +62,7 @@ FROM mem_pic
 ORDER BY mem_no DESC,  mem_pic_no ASC;
 
 commit;
+
 -- ▶실제 하드디스크에 저장된 파일명: mem_pic_name_up, mem_pic_th
 -- ▶업로드 당시 파일명: mem_pic_name
 
@@ -92,7 +88,7 @@ ORDER BY mem_pic_name ASC;
 DELETE FROM mem_pic
 WHERE mem_pic_no = 7;
 
-
+commit;
 -- 5) FK mem_no 부모키 별 조회
 SELECT mem_pic_no, mem_no, mem_pic_name, mem_pic_name_up, mem_pic_th, mem_pic_size, mem_pic_date
 FROM mem_pic

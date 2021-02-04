@@ -42,7 +42,7 @@
  
  function select_pay(){
    
-   var confirm_val = confirm("선택 결제?");
+   var confirm_val = confirm("결제하시겠습니까?");
    
    if(confirm_val) {
      
@@ -154,7 +154,7 @@
           <tr> 
            <td style='text-align: center;'>
            ${cart_no }
- 
+
            </td>
             <td style='text-align: center;'>${at_no}</td>
             <td style='text-align: center;'> ${at_name}</td>

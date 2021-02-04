@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import dev.mvc.at_grp.At_grp_ProcInter;
 import dev.mvc.at_grp.At_grp_VO;
-
+import dev.mvc.admin.AdminProcInter;
 import dev.mvc.at.At_Dates_Img;
 import dev.mvc.at_img.At_Img_ProcInter;
 
@@ -44,6 +46,10 @@ public class At_Cont {
   @Autowired
   @Qualifier("dev.mvc.at_img.At_Img_Proc")
   private At_Img_ProcInter at_Img_Proc;
+  
+  @Autowired
+  @Qualifier("dev.mvc.admin.AdminProc")
+  private AdminProcInter adminProc;
 
   /**
    * 목록 + 검색 + 페이징 지원 http://localhost:9090/resort/contents/list.do
@@ -231,12 +237,17 @@ public class At_Cont {
    * @return
    */
   @RequestMapping(value = "/at/create.do", method = RequestMethod.GET)
-  public ModelAndView create(int at_grp_no) {
+  public ModelAndView create(HttpSession session, int at_grp_no) {
     ModelAndView mav = new ModelAndView();
 
+    if (adminProc.isAdmin(session)) { // 관리자 로그인인 경우
+    
     At_grp_VO at_grp_VO = this.at_grp_Proc.read(at_grp_no);
     mav.addObject("at_grp_VO", at_grp_VO);
     mav.setViewName("/at/create");
+    }else {
+      mav.setViewName("redirect:/at/login_need.jsp"); 
+    }
     return mav;
   }
 

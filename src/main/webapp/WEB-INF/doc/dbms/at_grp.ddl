@@ -1,4 +1,5 @@
 DROP TABLE at_grp CASCADE CONSTRAINTS;
+DROP SEQUENCE at_grp_seq;
 
 /**********************************/
 /* Table Name: 상품그룹 */

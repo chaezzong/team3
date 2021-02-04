@@ -2,71 +2,73 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  
 <style type="text/css">
-/* fieldset 전체 적용 */
-.categrp_cate_left{
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+  float: center;
+  margin-left: 40px;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 80%;
+  height: 300px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
   width: 100%;
-  margin: 0px auto; 
-  border-left: none; 
-  border-right: none;
-  border-top: solid 1px #DDDDDD;  
-  border-bottom: solid 1px #DDDDDD;  
-  text-align: left;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
 }
- 
-/* <UL> 태그에 적용 */
-.categrp_cate_list_left{
-  padding-left: 10%; 
-  line-height: 20px;
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
 }
- 
-/* 카테고리 그룹 이름에 적용, Spring에서 사용 */
-.categrp_name{
-  margin-left: 5%;
-  font-weight: bold;
-  list-style-image: url("${pageContext.request.contextPath}/cate/images/categrp.png");
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
 }
- 
-/* 카테고리에 적용, Spring에서 사용 */
-.cate_name{
-  margin-left: 5%;
-  list-style-image: url("${pageContext.request.contextPath}/cate/images/cate.png");
-}
+
+
 </style>
  
  
-    <DIV class="row" style='margin-top: 2px;'>
-    <DIV class="col-sm-3 col-md-2"> <!-- 메뉴 출력 컬럼-->
-    
-          <fieldset class='categrp_cate_left' style='margin-left: 40px;'>
-        <div>
-
-        <c:choose>
-          <c:when test="${mem_pic_th != null }">
-            <IMG src="${root}/team3/mem/storage/${mem_pic_th }"> 
-          </c:when>
-          <c:otherwise>
-            <IMG src="./images/profpic.png" width="180px;" height="180px;"> 
-          </c:otherwise>
-        </c:choose>
-        
-        </div>
-        <br>
-       [ ${mem_nick} ] 님
-      </fieldset>
-      <br>
+    <DIV class="col-sm-2 col-md-2"  > <!-- 메뉴 출력 컬럼-->
+            <UL class='categrp_cate_list_left'  style="text-align: center;">
+          <c:choose>
+            <c:when test="${mem_pic_th != null }">
+              <IMG src="${root}/team3_v2s4m3c/mem/storage/${mem_pic_th }" class="img-circle" alt="Cinque Terre"
+                      style = margin : 0px auto; '> 
+            </c:when>
+            <c:otherwise>
+              <IMG src="${root}/team3_v2s4m3c/mem/images/profpic.png" width="180px;" height="180px;"> 
+            </c:otherwise>
+          </c:choose> 
+          <br>
+          <br>
+    <h5 style="text-align: center;">       [ ${mem_nick} ] 님  하용! </h5>
+            </UL>
       
-      <fieldset class='categrp_cate_left' style='margin-left: 40px;'>
-        <UL class='categrp_cate_list_left' >
-          <li>☞ <a href="${root}/team3/mem_his/read.do?mem_no=${mem_no}">내 구매 내역</a></li>
-          <br>
-          <li>☞<a href="${root}/team3/mem_wish/list_search_paging.do?mem_no=${mem_no}">내 위시리스트</a></li>
-          <br>
-          <li>☞<a href="${root}/team3/mem_reply/list.do?mem_no=${mem_no}">내 후기</a></li>
-          <br>
-          <li>☞<a href="${root}/team3/mem_que/list.do?mem_no=${mem_no}">내 문의</a></li>
-          <br>
-          <li>☞<a href="${root}/team3/mem/read.do?mem_no=${mem_no}">내 계정</a></li>
-        </UL>
-     </fieldset>
-    
+      <div class="tab" >
+      <button class="tablinks" onclick="location.href='/team3_v2s4m3c/payment/list.do?mem_no=${sessionScope.mem_no}'">내 구매</button>
+      <%-- <button class="tablinks" onclick="location.href='/team3_v2s4m3c/mem_wish/list_search_paging.do?mem_no=${sessionScope.mem_no}'">내 위시</button> --%>
+      <button class="tablinks" onclick="location.href='/team3_v2s4m3c/review/list_by_mem_no.do?mem_no=${sessionScope.mem_no}'">내 리뷰</button>
+      <button class="tablinks" onclick="location.href='/team3_v2s4m3c/inquire/list.do?mem_no=${sessionScope.mem_no}'">내 문의</button>
+      <button class="tablinks" onclick="location.href='/team3_v2s4m3c/mem/read.do?mem_no=${sessionScope.mem_no}'">내 계정</button>
+    </div>
    </DIV>
+   
+   
+   
+   <br>

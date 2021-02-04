@@ -87,7 +87,7 @@
     <input type='hidden' name='at_grp_no' id='at_grp_no'
       value='${at_grp_VO.at_grp_no }'>
 
-    <div class="form-group">
+<!--     <div class="form-group">
       <label class="control-label col-md-3">날짜</label>
       <div class="col-md-9">
         <input type="text"  name='dates_date' id="dates_date" value="" required>
@@ -116,7 +116,7 @@
             format : "yyyy-mm-dd", // 달력에서 클릭시 표시할 값 형식
             language : "kr",
           });
-        </script>
+        </script> -->
 
 
 
@@ -125,7 +125,7 @@
       <div class="col-md-9">
         <input type='number' name='stock' id='stock' value='2'
           placeholder="" min="1" max="1000" step="1"
-          style='width: 30%;' class="form-control" required>
+          style='width: 30%;' required>
       </div>
     </div>
 

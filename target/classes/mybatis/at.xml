@@ -79,7 +79,7 @@ WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
     SELECT
     at_no, at_grp_no, at_seqno, at_visible, at_name, at_detail,
     at_price, at_content, at_cancle, at_lowest, at_hit, at_dur, at_lang,
-    at_sns, at_map
+    at_map
     FROM at
     WHERE at_no =#{at_no}
   </select>
@@ -100,11 +100,11 @@ WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
     INSERT INTO at(at_no,
     at_grp_no, at_seqno, at_visible, at_name, at_detail,
     at_price,
-    at_content, at_cancle, at_lowest, at_dur, at_lang, at_sns,
+    at_content, at_cancle, at_lowest, at_dur, at_lang, 
     at_map)
     VALUES (at_seq.nextval, #{at_grp_no}, #{at_seqno}, #{at_visible},
     #{at_name}, #{at_detail}, #{at_price}, #{at_content}, #{at_cancle},
-    #{at_lowest}, #{at_dur}, #{at_lang}, #{at_sns}, #{at_map})
+    #{at_lowest}, #{at_dur}, #{at_lang},  #{at_map})
   </insert>
 
 
@@ -125,7 +125,7 @@ WHERE <![CDATA[ r >= #{startNum} AND r <= #{endNum} ]]>
     at_price=#{at_price},
     at_content=#{at_content}, at_cancle=#{at_cancle},
     at_lowest=#{at_lowest}, at_dur=#{at_dur}, at_lang=#{at_lang},
-    at_sns=#{at_sns}, at_map=#{at_map}
+    at_map=#{at_map}
     WHERE at_no=#{at_no}
   </update>
 

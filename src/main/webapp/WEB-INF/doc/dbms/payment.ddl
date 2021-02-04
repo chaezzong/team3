@@ -42,7 +42,7 @@ CREATE SEQUENCE payment_seq
  --등록 
 
 INSERT INTO payment(payment_no, mem_no, at_no,cart_no, payment_way, payment_total, payment_date, cart_cnt, at_price, at_name)
-VALUES(payment_seq.nextval, 1, 1, 1,'계좌이체', 50000,  sysdate, 1, 50000, '진진자라');
+VALUES(payment_seq.nextval, 3, 1, 1,'계좌이체', 50000,  sysdate, 1, 50000, '진진자라');
 
 commit;
 
@@ -52,7 +52,7 @@ commit;
 
 SELECT payment_no, mem_no, payment_way, payment_total, payment_date
 FROM payment
-WHERE mem_no=1
+WHERE mem_no=3
 ORDER BY payment_no ASC;
 
 
@@ -77,9 +77,12 @@ ORDER BY payment_no ASC;
     WHERE mem_no=1;
 
 
-
+--삭제,전체삭제
 DELETE FROM payment
 WHERE payment_no = 1 AND mem_no=1;
+
+--DELETE FROM payment ON DELETE CASCADE
+--WHERE payment_no=99 AND mem_no=1;
 
 
 commit;
@@ -87,4 +90,5 @@ commit;
 
      SELECT COUNT(*) as cnt
      FROM payment
+     WHERE mem_no=1
 

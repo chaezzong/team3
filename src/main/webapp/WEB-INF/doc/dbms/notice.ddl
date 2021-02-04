@@ -36,13 +36,24 @@ CREATE SEQUENCE notice_seq
 
 
 1) 공지사항 등록
-INSERT INTO notice(noticeno, notice_title, notice_content, notice_rname, notice_passwd, notice_cnt, notice_division, notice_rdate)
-VALUES(notice_seq.nextval, '공지사항1', '공지사항', '관리자1', '1234', 'Y', 0, '공지', sysdate);
 
+      noticeno              NUMBER(10)     NOT NULL PRIMARY KEY, -- 공지 번호
+      notice_title           VARCHAR2(100)     NOT NULL, -- 공지 제목
+      notice_content      VARCHAR2(100)     NOT NULL, -- 공지 내용
+      notice_rname        VARCHAR2(10)    NOT NULL, -- 등록자
+      notice_passwd       VARCHAR2(15)    NOT NULL, -- 패스워드
+      notice_cnt             NUMBER(7)     NOT NULL, -- 조회수
+      notice_division       VARCHAR2(10)    NOT NULL, -- 구분
+      word                  VARCHAR2(300)        NULL , -- 검색어
+      notice_rdate          DATE               NOT NULL -- 등록일  
+      
 INSERT INTO notice(noticeno, notice_title, notice_content, notice_rname, notice_passwd, notice_cnt, notice_division, notice_rdate)
+VALUES(notice_seq.nextval, '공지사항1', '공지사항', '관리자1', '1234', 0, 'Y' ,  sysdate);
+
+INSERT INTO notice(noticeno, notice_title, notice_content, notice_rname, notice_passwd, notice_cnt, notice_division, notice_rdate) ----x
 VALUES(notice_seq.nextval, '공지사항2', '공지사', '관리자2', '1234', 'Y', 0, '일반', sysdate);
             
-INSERT INTO notice(noticeno, notice_title, notice_content, notice_rname, notice_passwd, notice_cnt, notice_division, notice_rdate)
+INSERT INTO notice(noticeno, notice_title, notice_content, notice_rname, notice_passwd, notice_cnt, notice_division, notice_rdate) -----x
 VALUES(notice_seq.nextval, '공지사항3', '공지', '관리자3', '1234', 'Y', 0, '서비스', sysdate);
 
 commit;

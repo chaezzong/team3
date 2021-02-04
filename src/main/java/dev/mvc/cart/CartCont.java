@@ -88,6 +88,7 @@ public class CartCont {
  }
 */
   
+  
   @ResponseBody
  @RequestMapping(value="/cart/create.do", method=RequestMethod.POST )
  public String create(HttpSession session, CartVO cartVO) {
@@ -106,8 +107,10 @@ public class CartCont {
    JSONObject json = new JSONObject();
    json.put("cnt", cnt);
    json.put("mem_no", cartVO.getMem_no());
-   
    return json.toString();
+   
+   
+   
  }
   //@RequestBody : 웹에서 넘어오는 데이터를 string 형태로 가져옴
 //@ResponseBody : 컨트롤러에서 viewName을 return하는게 아니라 요청한 페이지로 return 데이터 자체를 넘김
@@ -123,14 +126,16 @@ public class CartCont {
  public ModelAndView at_cart_mem_list(HttpSession session) {
    ModelAndView mav = new ModelAndView();
 
-   HashMap<String, Object> map = new HashMap<String, Object>(); 
-   
    if (cartProc.isMember(session)) {
+   
+     int mem_no = (Integer)session.getAttribute("mem_no");
+
+     HashMap<String, Object> map = new HashMap<String, Object>(); 
+     map.put("mem_no", mem_no);
      
      int search_count = cartProc.search_count(map);
-     mav.addObject("search_count", search_count);
+     mav.addObject("search_count",search_count);
 
-     int mem_no = (Integer)session.getAttribute("mem_no");
      
    MemVO memVO =this.memProc.read(mem_no);
    

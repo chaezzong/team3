@@ -31,8 +31,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 갯수 -->
 <select id="search_count" resultType="int" >
-   SELECT COUNT(*) as cnt
-   FROM payment
+     SELECT COUNT(*) as cnt
+     FROM payment
+     WHERE mem_no=#{mem_no}
 </select>
 
 

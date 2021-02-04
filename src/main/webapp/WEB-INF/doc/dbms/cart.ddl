@@ -36,7 +36,7 @@ CREATE SEQUENCE cart_seq
 
 -- 등록
 INSERT INTO CART(cart_no, mem_no, at_no, cart_cnt, cart_payment,  cart_date, at_name)
-VALUES(cart_seq.nextval, 1, 1, 4, 50000,  sysdate, '진진자라');
+VALUES(cart_seq.nextval, 3, 1, 4, 50000,  sysdate, '진진자라');
 
 
 COMMIT;
@@ -131,6 +131,9 @@ WHERE cart_no=1 AND mem_no=1;
 
 commit;
 
+--전체삭제
+DELETE FROM cart
+
 --삭제
 DELETE FROM cart
 WHERE cart_no = 43 AND mem_no=1;
@@ -198,3 +201,4 @@ WHERE r >= 11 AND r <= 20;
 
      SELECT COUNT(*) as cnt
      FROM cart
+     WHERE mem_no=1

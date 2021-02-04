@@ -21,7 +21,7 @@
     
     
     
-    <footer class="footer" style='margin-top: 100px;'>
+    <footer class="footer"  style="margin-top:200px;">
         <div class="footer_top">
             <div class="container">
                 <div class="row">

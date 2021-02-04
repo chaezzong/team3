@@ -33,7 +33,7 @@
                               dev.mvc.inquire, dev.mvc.inquire_attachfile, dev.mvc.inquire_reply,
                                
                               dev.mvc.cart, dev.mvc.payment, dev.mvc.payment_details,
-                              dev.mvc.surv, dev.mvc.surv_choice, dev.mvc.surv_item " />
+                              dev.mvc.surv, dev.mvc.surv_choice, dev.mvc.surv_item, dev.mvc.review " />
                    
                    
     <property name="mapperLocations" value="classpath:mybatis/*.xml" />

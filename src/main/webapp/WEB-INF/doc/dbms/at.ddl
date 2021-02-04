@@ -18,7 +18,6 @@ CREATE TABLE AT(
         AT_HIT                              NUMBER(10)       DEFAULT 0       NOT NULL,
         AT_DUR                              NUMBER(10)       NOT NULL,
         AT_LANG                             VARCHAR2(100)        NOT NULL,
-        AT_SNS                              VARCHAR2(1000)       NOT NULL,
         AT_MAP                              VARCHAR2(100)        NOT NULL,
 
   FOREIGN KEY (AT_GRP_NO) REFERENCES AT_GRP (AT_GRP_NO)
@@ -38,7 +37,6 @@ COMMENT ON COLUMN AT.AT_LOWEST is '상품최저가보장여부';
 COMMENT ON COLUMN AT.AT_HIT is '상품조회수';
 COMMENT ON COLUMN AT.AT_DUR is '상품소요시간';
 COMMENT ON COLUMN AT.AT_LANG is '상품지원언어';
-COMMENT ON COLUMN AT.AT_SNS is '상품소셜';
 COMMENT ON COLUMN AT.AT_MAP is '상품지도';
 
 DROP SEQUENCE at_seq;

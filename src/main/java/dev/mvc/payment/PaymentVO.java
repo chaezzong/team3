@@ -29,7 +29,7 @@ public class PaymentVO {
   private String at_name;
  
   
-  
+  private int exp; /**리뷰 작성 여부*/
   
 
   public int getPayment_no() {
@@ -93,7 +93,12 @@ public class PaymentVO {
     this.at_name = at_name;
   }
   
-  
+  public int getExp() {
+    return exp;
+  }
+  public void setExp(int exp) {
+    this.exp = exp;
+  }
   
   
   

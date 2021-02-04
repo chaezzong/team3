@@ -19,6 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      <select id="search_count" resultType="int" parameterType="HashMap">
      SELECT COUNT(*) as cnt
      FROM cart
+     WHERE mem_no=#{mem_no}
    </select>
 
 

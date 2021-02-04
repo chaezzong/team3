@@ -41,8 +41,7 @@
 
 
    <FORM id='frm' enctype="multipart/form-data" class="form-horizontal">
-    <input type='hidden' name='at_grp_no' id='at_grp_no'
-      value='${at_VO.at_grp_no }'> 
+    <input type='hidden' name='at_grp_no' id='at_grp_no'    value='${at_VO.at_grp_no }'> 
       <input type='hidden' name='at_no' id='at_no' value='${at_VO.at_no }'>
 
 
@@ -217,7 +216,7 @@
       </div>
     </div>
 
-    <div class="form-group">
+<%--     <div class="form-group">
       <label class="control-label col-md-3">TAG</label>
       <div class="col-md-9">
         <input type='text' name='at_tag' id='at_tag'
@@ -225,7 +224,7 @@
           autofocus="autofocus" class="form-control" style='width: 50%;'
           required>
       </div>
-    </div>
+    </div> --%>
 
     <div class="form-group">
       <label class="control-label col-md-3">지도</label>

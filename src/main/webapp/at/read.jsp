@@ -125,12 +125,16 @@
   });
 
   function send(){
-    
+
+
+    var confirm_val = confirm("장바구니에 담으시겠습니까?");
     var frm = $('#frm');
     var mem_no = $('#mem_no', frm).val();
     var at_no = $('#at_no', frm).val();
     
     var params = frm.serialize();// 값가져옴
+if(confirm_val){
+    
    // var params ='mem_no='+mem_no +'&at_no=' + at_no;
   //  alert(params); 
     $.ajax({ 
@@ -163,8 +167,12 @@
       }
     });
 
+}else {
+  return false;
+}
+
   
-  }
+  } 
 </script>
 </head>
 
@@ -174,9 +182,9 @@
   <jsp:include page="/menu/top.jsp" />
   <!-- 관리자만 노출 -->
   <ASIDE style='float: right;'>
-    <button type="button"
+ <%--    <button type="button"
       onclick="location.href='${root }/at/update.do?at_no=${at_VO.at_no }'">상품
-      수정</button>
+      수정</button> --%>
   </ASIDE>
   <!-- 관리자만 노출 -->
 
@@ -187,7 +195,7 @@
         <div class="col-md-9">
           <div class="destination_info">
 
-            <h3>${at_VO.at_no} / ${at_VO.at_name }
+            <h3>상품명 : ${at_VO.at_name }</h3>
                   <!-- 이미지 갤러리 -->
 
       <div class="section-top-border">
@@ -205,47 +213,92 @@
             </c:forEach>
           </div>
         </div>
-        </h3>
       </div>
-      <!-- 이미지 갤러리 --></h3>
+      <!-- 이미지 갤러리 -->
                  
-            <p>${at_VO.at_name } | ${at_VO.at_detail }|
+            <p> 상세내용 : ${at_VO.at_content } </p>
+            <p> 상품가격 :
               <fmt:formatNumber value="${at_VO.at_price }" pattern="#,###" />
               KRW
             </p>
-            <p>
+<%--             <p>
               <c:forEach var="dates_cnt" items="${list }">
-                예약 가능 날짜:${dates_cnt.dates_date }<br>
+                예약 가능 날짜 : ${dates_cnt.dates_date }<br>
               </c:forEach>
-            </p>
+            </p>  --%>
    
+
             <!-- 예약입력받기 start -->
-            <FORM name='frm' id='frm' method='POST' action='../cart/create.do'>
+            <FORM name='frm' id='frm' >
             <input type='hidden' name='mem_no' id='mem_no' value='${sessionScope.mem_no }'>
             <input type='hidden' name='at_no' id='at_no' value='${at_VO.at_no }'>
-            <input type='hidden' name='at_name' id='at_name' value='${at_VO.at_no }'>
+            <input type='hidden' name='at_name' id='at_name' value='${at_VO.at_name }'>
+            <input type='hidden' name='at_price' id='at_price' value='${at_VO.at_price }'>
               <!-- 넘겨야 할 값: At_dates, int book -->
               <%--       <input type='hidden' name='at_grp_no' id='at_grp_no' value='${at_VO.at_grp_no }'> --%>
-<br><br><br><br><br><br>
+              
+              
+              
 
+    <div class="form-group"  style="margin-top: 200px;">
+    
+      <label class="control-label col-md-3">날짜 :</label>
+      <div class="col-md-9">
+       <!--  <input type="text"  name='dates_date' id="dates_date" value="" required> -->
+        <input type="text"  name='dates_date' id="dates_date" value="" required readonly="true"> 
+
+      </div>
+    </div>
+
+
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+          
+        </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.kr.min.js">
+          
+        </script>
+    <script type="text/javascript">
+
+          $('#dates_date').datepicker({
+            startDate: '+1d',
+            autoclose : true,
+            title: "예약일 선택",
+            todayHighlight : true,
+            format : "yyyy-mm-dd", // 달력에서 클릭시 표시할 값 형식
+            language : "kr",
+          });
+        </script>
+        
+        
+        <br>
       
-      <div class="form-group">   
+      <div class="form-group" style="margin-top: 20px;">   
         <label class="control-label col-md-3">수량 : </label>   
         <div class="col-md-9">
-          <input type='number'id = 'cart_cnt'  name='cart_cnt' value='' placeholder="수량" min="1" max="10" step="1" style='width: 30%;'
-          class="form-control" required>
+<!--           <input type='number' id = 'cart_cnt'  name='cart_cnt' value='' placeholder="수량을 입력해주세요" min="1" max="10" step="1" style='width: 30%;'
+       required  > -->
+      <input type='text' id = 'cart_cnt'  name='cart_cnt' value='' placeholder="수량을 입력해주세요" min="1" max="10" step="1" style='width: 30%;'
+       required   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+
+       
         </div>
 
       </div>
       
-      <div class="form-group">   
+      <br>
+<%--       
+      <div class="form-group" style="margin-top: 20px;">   
          <label class="control-label col-md-3">개별가격 : </label>   
-        <div class="col-md-9">
-          <input type='text' class="form-control input-lg"  id = 'at_price'  name='at_price' value='${at_VO.at_price}' placeholder="개별가격" style='width: 80%;'>
+        <div class="col-md-9"  >
+          <input type='text'  id = 'at_price'  name='at_price' value='${at_VO.at_price}' placeholder="개별가격" style='width: 80%;'> 
         </div>
       </div>      
-      
-      
+       --%>
+      <br><br><br><br><br>
       
          
               <button type="button" class="btn" id="btn_send">장바구니</button>
@@ -260,7 +313,8 @@
 
 
       <!-- 예약입력받기 end -->
-      <div class="bordered_1px"></div>
+       <div class="bordered_1px"></div>
+       상품설명<br>
       <p>${at_VO.at_content }</p>
       <p>${at_VO.at_map }</p>
       <div class="single_destination">
@@ -275,7 +329,7 @@
 
    <!-- 이미지 갤러리 -->
 
-<%--       <div class="section-top-border">
+<%--      <div class="section-top-border">
         <div>
           <h3>Image Gallery</h3>
           <!-- 관리지만 표시 -->
@@ -297,7 +351,7 @@
             </c:forEach>
           </div>
         </div>
-      </div> --%>
+      </div>  --%>
       <!-- 이미지 갤러리 -->
     </div>
 

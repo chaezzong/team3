@@ -28,8 +28,14 @@
     var mem_id = $('#mem_id', frm).val(); 
     var mem_nick = $('#mem_nick', frm).val(); 
     var mem_tel = $('#mem_tel', frm).val();  */
+
     
   $(document).ready(function(e){
+
+
+
+
+    
 
 	  var idx1 = false; // 아이디 중복 체크 여부
 	  var idx2 = false; // 닉네임 중복 체크 여부
@@ -223,6 +229,8 @@
       return false;
     }
 
+  
+
     // mem_id 중복체크 확인
     if(idx1==false){
       alert("아이디 중복체크를 해주세요.");
@@ -291,7 +299,7 @@
           // location.href='${root}/team3/mem/read.do?mem_no='+rdata.mem_no;
           var success = 1;
           
-          location.href='${root}/team3/mem/login.do?success='+success;
+          location.href='${root}/team3_v2s4m3c/';
           
           msg = "회원 가입 성공";
           $('#modal_content').attr('class', 'alert alert-success'); // Bootstrap CSS 변경
@@ -314,9 +322,16 @@
     location.href='${root}/team3/mem/read.do?mem_no='+mem_no;
     });
 
+
+  
   })
 
-</script>
+  
+
+
+
+      }
+     </script>
 </head> 
 
 <body>
@@ -382,14 +397,15 @@
     <div class="form-group">
       <label for="passwd" class="col-md-2 control-label">패스워드*</label>    
       <div class="col-md-10">
-        <input type='password' class="form-control" name='mem_pw' id='mem_pw' value='1234' required="required" style='width: 30%;' placeholder="패스워드">
+        <input type='password' class="form-control" name='mem_pw' id='mem_pw' value='' required="required" style='width: 30%;' 
+                   placeholder="패스워드를 입력해주세용" minlength="4" >
       </div>
     </div>   
 
     <div class="form-group">
       <label for="passwd2" class="col-md-2 control-label">패스워드 확인*</label>    
       <div class="col-md-10">
-        <input type='password' class="form-control" name='mem_pw2' id='mem_pw2' value='1234' required="required" style='width: 30%;' placeholder="패스워드">
+        <input type='password' class="form-control" name='mem_pw2' id='mem_pw2' value='' required="required" style='width: 30%;' placeholder="패스워드">
       </div>
     </div>
     

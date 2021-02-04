@@ -1,12 +1,9 @@
+--제약 조건과 함께 삭제(제약 조건이 있어도 삭제됨, 권장하지 않음.)
+DROP TABLE mem CASCADE CONSTRAINTS; 
+
 /**********************************/
 /* Table Name: 회원 */
-/**********************************/
-
-
-
--- ▷ 제약 조건과 함께 삭제(제약 조건이 있어도 삭제됨, 권장하지 않음.)
-DROP TABLE mem CASCADE CONSTRAINTS; 
- 
+/**********************************/ 
 -- ▷ 생성
 CREATE TABLE MEM(
 		MEM_NO                        		NUMBER(10)		 NOT NULL		 PRIMARY KEY,
@@ -21,7 +18,6 @@ CREATE TABLE MEM(
 		MEM_PT                        		NUMBER(10)		 DEFAULT 0		 NOT NULL,
 		MEM_DATE                      		DATE		 NOT NULL,
 		MEM_STS                       		NUMBER(1)		 DEFAULT 0		 NOT NULL,
-
 		MEM_PIC_NAME_UP               		VARCHAR2(100)		 NULL ,
 		MEM_PIC_TH                   		VARCHAR2(100)		 NULL ,
 		MEM_PIC_SIZE                 		NUMBER(10)		 DEFAULT 0     NULL 
@@ -94,7 +90,7 @@ VALUES (mem_seq.nextval, 'user5', '1234', '푸', '곰돌이', '12345', '서울시 종로�
  
  
  
- 
+ commit;
 -- ▶ 목록( mem_no 기준 내림 차순)
 
 SELECT mem_no, mem_id, mem_pw, mem_name, mem_nick, mem_zip, mem_addr1, mem_addr2, mem_tel, mem_pt, mem_sts, mem_date, 

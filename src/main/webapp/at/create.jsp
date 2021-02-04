@@ -42,7 +42,7 @@
   <FORM id='frm' enctype="multipart/form-data" class="form-horizontal">
     <input type='hidden' name='at_grp_no' id='at_grp_no'
       value='${at_grp_VO.at_grp_no }'>
-
+      
     <div class="form-group">
       <label class="control-label col-md-3">날짜</label>
       <div class="col-md-9">
@@ -72,14 +72,14 @@
             format : "yyyy-mm-dd",
             language : "kr",
           });
-        </script>
+        </script> 
 
 
 
     <div class="form-group">
       <label class="control-label col-md-3">수량</label>
       <div class="col-md-9">
-        <input type='number' name='stock' id='stock' value='2'
+        <input type='number' name='stock' id='stock' value=''
           placeholder="" min="1" max="1000" step="1" style='width: 30%;'
           class="form-control" required>
       </div>
@@ -88,7 +88,7 @@
     <div class="form-group">
       <label class="control-label col-md-3">출력 순서</label>
       <div class="col-md-9">
-        <input type='number' name='at_seqno' id='at_seqno' value='4'
+        <input type='number' name='at_seqno' id='at_seqno' value=''
           placeholder="" min="1" max="1000" step="1" style='width: 30%;'
           class="form-control" required>
       </div>
@@ -109,7 +109,7 @@
     <div class="form-group">
       <label class="control-label col-md-3">상품명</label>
       <div class="col-md-9">
-        <input type='text' name='at_name' id='at_name' value='라세느'
+        <input type='text' name='at_name' id='at_name' value=''
           autofocus="autofocus" class="form-control" style='width: 50%;'
           required>
       </div>
@@ -118,7 +118,7 @@
     <div class="form-group">
       <label class="control-label col-md-3">상품명 상세 </label>
       <div class="col-md-9">
-        <input type='text' name='at_detail' id='at_detail' value='단독상품'
+        <input type='text' name='at_detail' id='at_detail' value=''
           autofocus="autofocus" class="form-control" style='width: 50%;'
           required>
       </div>
@@ -129,7 +129,7 @@
     <div class="form-group">
       <label class="control-label col-md-3">가격</label>
       <div class="col-md-9">
-        <input type='text' name='at_price' id='at_price' value='5000'
+        <input type='text' name='at_price' id='at_price' value=''
           autofocus="autofocus" class="form-control" style='width: 50%;'
           required>
       </div>
@@ -140,7 +140,7 @@
       <label class="control-label col-md-3">상세내용</label>
       <div class="col-md-9">
         <textarea required class="form-control" name='at_content'
-          id='at_content' rows='10' placeholder="내용" style="width: 60%;">4</textarea>
+          id='at_content' rows='10' placeholder="내용" style="width: 60%;"></textarea>
       </div>
     </div>
 
@@ -196,7 +196,7 @@
           required>
       </div>
     </div>
-
+<!-- 
     <div class="form-group">
       <label class="control-label col-md-3">AT_SNS</label>
       <div class="col-md-9">
@@ -204,7 +204,7 @@
           autofocus="autofocus" class="form-control" style='width: 50%;'
           required>
       </div>
-    </div>
+    </div> -->
 
     <div class="form-group">
       <label class="control-label col-md-3">지도</label>
@@ -215,7 +215,7 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group"  style="margin-top:50px;">
       <div class="col-md-12">
         ⁂첫번째로 등록한 파일이 상품 대표 이미지로 자동 노출 <input type='file'
           class="form-control" name='fnamesMF' id='fnamesMF' value=''

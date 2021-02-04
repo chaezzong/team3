@@ -23,6 +23,10 @@ import dev.mvc.cart.CartVO;
 import dev.mvc.mem.MemProcInter;
 import dev.mvc.mem.MemVO;
 import dev.mvc.at.At_ProcInter;
+import dev.mvc.review.Mem_ReviewVO;
+import dev.mvc.review.Payment_ReviewVO;
+import dev.mvc.review.ReviewProcInter;
+import dev.mvc.review.ReviewVO;
 
 
 @Controller
@@ -43,6 +47,10 @@ public class PaymentCont {
   @Autowired
   @Qualifier("dev.mvc.payment.PaymentProc")
   private PaymentProcInter paymentProc;
+  
+  @Autowired
+  @Qualifier("dev.mvc.review.ReviewProc")
+  private ReviewProcInter reviewProc;
   
 
   public PaymentCont() {
@@ -344,6 +352,14 @@ public ModelAndView create_select_form(HttpSession session, int [] checkOne) {
     
     // 검색 목록
     List<PaymentVO> list = this.paymentProc.list(map);
+    
+    // 리뷰 작성 여부 (int exp) 리스트에 추가
+    int exp = 0;
+    for (int i=0; i<list.size(); i++) {
+      exp = this.reviewProc.existReview(list.get(i).getPayment_no());
+      list.get(i).setExp(exp);
+    }
+    
     mav.addObject("list", list);
     
     // 검색된 레코드 갯수
@@ -415,8 +431,12 @@ public ModelAndView read(HttpSession session, int payment_no) {
 	
 	   int mem_no = (Integer)session.getAttribute("mem_no");
 	
-	PaymentVO paymentVO =this.paymentProc.read(payment_no);
-	MemVO memVO =this.memProc.read(mem_no);
+	   
+	   MemVO memVO =this.memProc.read(mem_no);
+	   PaymentVO paymentVO =this.paymentProc.read(payment_no);
+	   
+	   //리뷰삭제 ㄴㄴ 디비에서 ondeletecascade
+	   
 	
 	JSONObject json = new JSONObject();
 	json.put("payment_no", payment_no);

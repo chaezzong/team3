@@ -3096,7 +3096,7 @@
   </children>
   <dommains/>
   <dialectName>Oracle</dialectName>
-  <logicalMode>false</logicalMode>
+  <logicalMode>true</logicalMode>
   <jarFile>C:\ai6\ojdbc6.jar</jarFile>
   <jdbcDriver>oracle.jdbc.OracleDriver</jdbcDriver>
   <jdbcUrl>jdbc:oracle:thin:@localhost:1521:XE</jdbcUrl>

@@ -18,7 +18,7 @@
  
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 
-<script type="text/javascript">
+<script type="text/javascript">  
   function loadDefault() {
     $('#mem_id').val('user1');
     $('#mem_pw').val('1234');
@@ -29,7 +29,7 @@
  
 <body>
 <%-- <jsp:include page="/menu/top.jsp" flush='false' /> --%>
- 
+ <jsp:include page="/menu/top.jsp" flush='false' />
 <DIV class='title_line' style='width: 20%;'>로그인</DIV>
  
 <DIV style='width: 80%; margin: 0px auto;'>
@@ -74,6 +74,7 @@
 </DIV>
  
 <%-- <jsp:include page="/menu/bottom.jsp" flush='false' /> --%>
+<jsp:include page="/menu/bottom.jsp" flush='false' />
 </body>
  
 </html>

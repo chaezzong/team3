@@ -73,7 +73,7 @@
                               <li><a href="${root}/inquire/list.do?word=">-목록</a></li>
                             </c:otherwise>
                           </c:choose>
-                        <li><a href="${root}/faq/list.do?word=">자주묻는질문</a></li>
+                <%--         <li><a href="${root}/faq/list.do?word=">자주묻는질문</a></li> --%>
 
                       </ul></li>
                       
@@ -106,9 +106,9 @@
                         <c:choose>
                           <c:when test="${sessionScope.mem_id != null}"> <!-- 회원 로그인 -->
                             <li><a href="${root}/payment/list.do?mem_no=${sessionScope.mem_no}">내 구매 내역</a></li>
-                            <li><a href="${root}/mem_wish/list_search_paging.do?">내 위시리스트</a></li>
-                            <li><a href="${root}/mem_reply/list.do?mem_no=${sessionScope.mem_no}">내 후기</a></li>
-                            <li><a href="${root}/mem_que/list.do?mem_no=${sessionScope.mem_no}">내 문의</a></li>
+                            <li><a href="${root}/mem_wish/list_search_paging.do?mem_no=${sessionScope.mem_no}">내 위시리스트</a></li>
+                            <li> <a href="${root}/mem_reply/list.do?mem_no=${sessionScope.mem_no}">내 후기</a></li>
+                            <li> <a href="${root}/mem_que/list.do?mem_no=${sessionScope.mem_no}"> 내 문의</a></li>
                             <li><a href="${root}/mem/read.do?mem_no=${sessionScope.mem_no}">내 계정</a></li>
                           </c:when>
                         </c:choose>
@@ -136,7 +136,7 @@
                     
                     <%-- 로그아웃 --%>
                     <c:otherwise>
-                      ${sessionScope.mem_id } <A  href='${root}/mem/logout.do' > Logout</A> |
+                      ${sessionScope.mem_id } 님 <A  href='${root}/mem/logout.do' > Logout</A> |
                       
                     </c:otherwise>
                   </c:choose>
@@ -147,7 +147,8 @@
                       <A   href='${root}/admin/login.do' >관리자 Login</A>
                     </c:when>
                     <c:otherwise>
-                      ${sessionScope.id_admin } <A  href='${root}/admin/logout.do' >관리자 Logout</A> 
+                      ${sessionScope.id_admin } 님 
+                      <A  href='${root}/admin/logout.do' >관리자 Logout</A> 
                     </c:otherwise>
                   </c:choose>
                 </div>

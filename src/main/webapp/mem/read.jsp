@@ -206,7 +206,5 @@
   </div>
   </div>
   
-<jsp:include page="/menu/bottom.jsp" flush='false' />
-
 </body>
 </html>
